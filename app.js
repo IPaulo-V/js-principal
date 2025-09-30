@@ -9,7 +9,8 @@ exibirTexto('h1', 'Número secreto');
 exibirTexto('p', 'Escolha um numero de 1 à 10');
 
 function verificarChute() {
-  console.log('O botão foi precisonado');  
+  let chute = document.querySelector('input').value;
+  console.log(chute == numeroSecreto);  
 }
 
 function gereNumeroAleatorio() {
