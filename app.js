@@ -6,7 +6,7 @@ function exibirTexto(tag, texto) {
 }
 
 exibirTexto('h1', 'Número secreto');
-exibirTexto('p', 'Escolha um numero de 1 à 10');
+exibirTexto('p', 'Escolha um numero entre 1 e 10');
 
 function verificarChute() {
   let chute = document.querySelector('input').value;
