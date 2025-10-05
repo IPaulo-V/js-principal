@@ -1,3 +1,5 @@
+let listaDeNumerosSorteados =[];
+let numeroLimite = 10
 let numeroSecreto = gereNumeroAleatorio();
 let tentativas = 1;
 
@@ -8,7 +10,7 @@ function exibirTexto(tag, texto) {
 
 function exibirMensagemInicial() {
   exibirTexto('h1', 'Número secreto');
-  exibirTexto('p', 'Escolha um numero entre 1 e 10');
+  exibirTexto('p', `Escolha um numero entre 1 e ${numeroLimite}`);
 }
 exibirMensagemInicial()
 function verificarChute() {
@@ -33,9 +35,20 @@ function verificarChute() {
     }
   }
 }
-
 function gereNumeroAleatorio() {
-  return parseInt(Math.random() * 10 + 1);
+  let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
+  let quantidadeDeElementosNaLista = listaDeNumerosSorteados.length;
+  
+  if(quantidadeDeElementosNaLista == numeroLimite ) {
+    listaDeNumerosSorteados = []
+  }
+  if(listaDeNumerosSorteados.includes(numeroEscolhido)){
+    return gereNumeroAleatorio();
+  } else {
+    listaDeNumerosSorteados.push(numeroEscolhido);
+    console.log(listaDeNumerosSorteados);
+    return numeroEscolhido
+  }
 }
 function limparCampo () {
   chute = document.querySelector('input');
