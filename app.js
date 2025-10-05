@@ -6,18 +6,20 @@ function exibirTexto(tag, texto) {
   campo.innerHTML = texto;
 }
 
-exibirTexto('h1', 'Número secreto');
-exibirTexto('p', 'Escolha um numero entre 1 e 10');
-
+function exibirMensagemInicial() {
+  exibirTexto('h1', 'Número secreto');
+  exibirTexto('p', 'Escolha um numero entre 1 e 10');
+}
+exibirMensagemInicial()
 function verificarChute() {
   let chute = document.querySelector('input').value;
   let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
-  
   
   if (chute == numeroSecreto) {
     exibirTexto('h1','Acertou!');
     let mensagemTentativa = `Parabéns, você descobriu em ${tentativas} ${palavraTentativa}!`
     exibirTexto('p', mensagemTentativa);
+    document.getElementById('reiniciar').removeAttribute('disabled');
 
   } else {
     if (chute > numeroSecreto) {
@@ -38,6 +40,11 @@ function gereNumeroAleatorio() {
 function limparCampo () {
   chute = document.querySelector('input');
   chute.value = '';
-
-
+}
+function reiniciarJogo() {
+  numeroSecreto = gereNumeroAleatorio();
+  limparCampo();
+  tentativas = 1;
+  exibirMensagemInicial();
+  document.getElementById('reiniciar').setAttribute('disabled',true);
 }
