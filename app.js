@@ -18,7 +18,7 @@ function exibirTexto(tag, texto) {
 
 function exibirMensagemInicial() {
   exibirTexto('h1', 'Número secreto');
-  exibirTexto('p', `Escolha um numero entre 1 e ${numeroLimite}`);
+  exibirTexto('p', `Escolha um número entre 1 e ${numeroLimite}`);
 }
 exibirMensagemInicial()
 function verificarChute() {
